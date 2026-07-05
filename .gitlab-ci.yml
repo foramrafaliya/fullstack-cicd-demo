@@ -10,7 +10,7 @@ install-job:
   script:
     - echo "Installing dependencies..."
     - npm install
-    - echo "✅ Dependencies installed!"
+    - echo "Dependencies installed!"
 
 test-job:
   stage: test
@@ -20,9 +20,9 @@ test-job:
     - echo "Testing application..."
     - node -e "require('./server.js')" &
     - sleep 3
-    - curl http://localhost:3000 && echo "✅ Server is running!"
+    - curl http://localhost:3000 && echo "Server is running!"
     - kill %1
-    - echo "✅ Tests passed!"
+    - echo "Tests passed!"
 
 deploy-job:
   stage: deploy
@@ -30,7 +30,7 @@ deploy-job:
     - aws-runner
   script:
     - echo "Deploying application..."
-    - echo "Branch: $CI_COMMIT_BRANCH"
-    - echo "Commit: $CI_COMMIT_SHORT_SHA"
-    - echo "Deployed by: $GITLAB_USER_NAME"
-    - echo "✅ Deployment complete!"
+    - echo "Branch $CI_COMMIT_BRANCH"
+    - echo "Commit $CI_COMMIT_SHORT_SHA"
+    - echo "Deployed by $GITLAB_USER_NAME"
+    - echo "Deployment complete!"
